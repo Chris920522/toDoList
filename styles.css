@@ -1,0 +1,70 @@
+body{
+  background-image: url(wallpapersden.com_cool-space-forest_3840x2160.jpg);
+  display: flex;
+  justify-content: center;
+}
+
+.操作面板 {
+  width: 300px;
+  height: fit-content;
+  padding: 30px;
+  margin-top: 150px;
+  border-radius: 20px;
+  box-shadow:0 10px 20px rgba(0, 0, 0, 1);
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+}
+
+.輸入區域 {
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.文字欄 {
+  flex-grow: 1;
+  border: none;
+  background-color: #f0f4f8;
+  padding: 10px 15px;
+  outline: none;
+}
+
+.按鈕 {
+  background-color: #00c787;
+  border:none;
+  color:white;
+  padding:10px 15px;
+  cursor: pointer;
+}
+
+.清單 {
+  list-style-type: none;
+  padding: 0;
+}
+
+.清單 li {
+  display: flex;
+  padding:10px 0;
+  border-bottom: 1px solid #eee;
+  color: white;
+}
+
+.清單 label{
+  flex-grow: 1;
+}
+
+.打勾方塊 {
+  margin-right: 15px;
+}
+
+.垃圾桶 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  color: white;
+  font-size: 20px;
+}
+
+.垃圾桶 :hover{
+  opacity: 1;
+}
