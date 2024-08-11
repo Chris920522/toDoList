@@ -5,7 +5,9 @@ body{
 }
 
 .操作面板 {
-  width: 300px;
+  min-width: 300px;
+  width: fit-content;
+  min-height: 450px;
   height: fit-content;
   padding: 30px;
   margin-top: 150px;
