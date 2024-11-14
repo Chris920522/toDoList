@@ -46,14 +46,16 @@ body{
 
 .清單 li {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding:10px 0;
   border-bottom: 1px solid #eee;
   color: white;
   font-size: 20px ;
 }
 
-.清單 label{
-  flex-grow: 1;
+label {
+  flex-grow: 1; /* 讓 label 佔據多餘空間 */
 }
 
 .打勾方塊 {

@@ -1,12 +1,15 @@
 const 文字欄 = document.querySelector(".文字欄");
 const 清單 = document.querySelector(".清單");
 const 按鈕 = document.querySelector(".按鈕");
+const 時間 = new Date();
+const 日期字串 = 時間.toLocaleDateString(); // 取得日期部分
+const 時間字串 = 時間.toLocaleTimeString(); // 取得時間部分
 
 function 儲存任務() {
-  const 任務紀錄 = Array.from(清單.children).map(任務元素 => 
-    //Array.from可以將()內的資料轉換為數組，清單.childeren指的是清單底下的元素。
-    //任務元素指的就是li
-    ({
+  const 任務紀錄 = Array.from(清單.children).map(任務元素 =>
+  //Array.from可以將()內的資料轉換為陣列，清單.childeren指的是清單底下的元素。
+  //任務元素指的就是li。
+  ({
     text: 任務元素.querySelector('label').textContent.trim(),
     completed: 任務元素.querySelector('.打勾方塊').checked
   }));
@@ -20,7 +23,10 @@ function 新任務(文字 = 文字欄.value, 是否完成 = false) {
   const 任務 = document.createElement("li");
   任務.innerHTML = `
     <input type="checkbox" class="打勾方塊" ${是否完成 ? "checked" : ""}>
+    <div class="任務內容">
+    <span class="時間">${日期字串}&nbsp&nbsp${時間字串}&nbsp&nbsp</span>
     <label>${文字}</label>
+    </div> 
     <button class="垃圾桶">🗑</button>
   `;
   // ? : 是三元運算符(條件 ? 如果為真時的值 : 如果為假時的值)，第一項條件若為ture(是否完成)，則會返回第二項(checked，是input元素的狀態，當ture時為打勾狀態，反之無打勾)，false則回傳第三項結果("")。
@@ -30,11 +36,11 @@ function 新任務(文字 = 文字欄.value, 是否完成 = false) {
   }
   清單.append(任務); //透過這行就能知道要將任務新增在哪邊，append指的就是放在最下方。
 
-  文字欄.value = "";
+  文字欄.value = ""; //將文字輸入欄還原成空白。
 
   const 垃圾桶 = 任務.querySelector(".垃圾桶");
   const 打勾方塊 = 任務.querySelector(".打勾方塊");
-
+  // 刪除任務
   垃圾桶.addEventListener("click", function () {
     任務.remove();
     儲存任務();
